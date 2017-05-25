@@ -1,0 +1,15 @@
+<% flash.each do |name, msg| %>
+  <% if name == "error" %>
+    <%= content_tag :div, msg, class: "alert alert-danger", role: "alert" %>
+  <% else %>
+    <%= content_tag :div, msg, class: "alert alert-success", role: "alert" %>
+  <% end %>
+<% end %>
+<% if @user.admin %>
+  <h1>ADMIN</h1>
+<% end %>
+Name: <%= @user.name %>
+Mood: <%= @user.mood %>
+Tickets: <%= @user.tickets %>
+Height: <%= @user.height %>
+<%= link_to 'See attractions', attractions_path %>

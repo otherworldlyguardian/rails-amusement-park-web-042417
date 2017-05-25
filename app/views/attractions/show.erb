@@ -1,0 +1,10 @@
+<%= @attraction.name %>
+
+<% if admin? %>
+  <%= link_to 'Edit Attraction', edit_attraction_path %>
+<% else %>
+  <%= form_tag ({controller: 'rides', action: 'create', method: 'post'}) do %>
+    <%= hidden_field_tag 'attraction_id', value = @attraction.id %>
+    <%= submit_tag "Go on this ride" %>
+  <% end %>
+<% end %>
